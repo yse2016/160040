@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<mate charset="UTF-8">
+	<title>createjs</title>
+</head>
+<body>
+	<h1>課題</h1>
+	<hr>
+
+	<canvas id="myCanvas" width="5000" height="5000"></canvas>
+
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script>
+
+	// ステージを作成
+var stage = new createjs.Stage("myCanvas");
+
+// オブジェクトの作成
+var shape =  new createjs.Bitmap("sinen.png");
+
+shape.regX=250;
+shape.regY=156.5;
+
+stage.addChild(shape);
+
+// tick イベントを登録する
+createjs.Ticker.addEventListener("tick", handleTick);
+
+function handleTick(event) {
+    // マウス座標を取得する
+    var mx = stage.mouseX;
+    var my = stage.mouseY;
+    // シェイプをマウスに追随させる
+    shape.x = mx;
+    shape.y = my;
+
+    // 画面を更新する
+    stage.update();
+}
+	</script>
+</body>
+</html>
