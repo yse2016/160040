@@ -8,7 +8,7 @@
 			import java.io.FileWriter;
 			import java.io.BufferedWriter;
 
-			class CoC{
+			class testCoC3{
 				public static void main(String[] args) {
 					Random rnd = new Random();
 
@@ -46,6 +46,7 @@
 					int sel=0;
 					int val=0;
 					String fileName;
+					int initial=0;
 
 					//名前を入力
 					System.out.println("探索者の名前を入力してください");
@@ -55,6 +56,13 @@
 
 
 					for (;;) {
+
+						san = pow*5;
+						idea = innt*5;
+						know = edu*5;
+						job=edu*20;
+						hobby=innt*10;
+						hp =(con+siz)/2;
 						System.out.println("  ");
 						System.out.println("探索者名:"+name);
 						System.out.println("STR:"+str+"\t"+"CON:"+con+"\t"+"DB:"+db2);
@@ -349,8 +357,24 @@
 			    		}catch (InputMismatchException e){
 			      			System.out.println("型が違います：" + e);
 			    		}
+					System.out.println("初期能力値を入力してください");
+			    	for (; ; ) {
+							try{
+								initial = scan.nextInt();
+				      			System.out.println(val); 
+				    		}catch (InputMismatchException e){
+				      			System.out.println("型が違います：" + e);
+				    		}
+				    			if (initial>=100) {
+				    				System.out.println("技能値が高すぎます、やり直してください");
+			    				}else if (initial<=0) {
+									System.out.println("技能値が低すぎます、やり直してください");			    					
+			    				}else{
+			    				break;
+			    				}
+			    		}
 					if (sel==1) {
-						System.out.println("残り職業ポイント"+job);
+			    		System.out.println("残り職業ポイント"+job);
 						System.out.println("技能点を入力してください");
 						try{
 							val = scan.nextInt();
@@ -358,6 +382,7 @@
 			    		}catch (InputMismatchException e){
 			      			System.out.println("型が違います：" + e);
 			    		}
+			    		job=job+initial;
 						for (;;) {
 							if (val>=100) {
 								System.out.println("数値が大きすぎます。やり直してください");
@@ -396,6 +421,7 @@
 					}else if (sel==2) {
 						System.out.println("残り趣味ポイント"+hobby);
 						System.out.println("技能点を入力してください");
+						hobby=hobby+initial;
 						try{
 								val = scan.nextInt();
 			      				System.out.println(val); 
@@ -535,4 +561,4 @@
 
     return false;
   }
-			}
+}
