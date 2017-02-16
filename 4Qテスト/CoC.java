@@ -357,13 +357,15 @@
 			    		}catch (InputMismatchException e){
 			      			System.out.println("型が違います：" + e);
 			    		}
-					System.out.println("初期能力値を入力してください");
 			    	for (; ; ) {
+			    			System.out.println("初期能力値を入力してください");
 							try{
 								initial = scan.nextInt();
 				      			System.out.println(val); 
 				    		}catch (InputMismatchException e){
 				      			System.out.println("型が違います：" + e);
+				      			initial=1;
+				      			break;
 				    		}
 				    			if (initial>=100) {
 				    				System.out.println("技能値が高すぎます、やり直してください");
@@ -375,6 +377,7 @@
 			    		}
 					if (sel==1) {
 			    		System.out.println("残り職業ポイント"+job);
+			    		System.out.println(target+":初期値 "+initial);
 						System.out.println("技能点を入力してください");
 						try{
 							val = scan.nextInt();
@@ -420,6 +423,7 @@
 						}
 					}else if (sel==2) {
 						System.out.println("残り趣味ポイント"+hobby);
+						System.out.println(target+":初期値 "+initial);
 						System.out.println("技能点を入力してください");
 						hobby=hobby+initial;
 						try{
