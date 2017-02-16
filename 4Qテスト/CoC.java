@@ -60,8 +60,6 @@
 						san = pow*5;
 						idea = innt*5;
 						know = edu*5;
-						job=edu*20;
-						hobby=innt*10;
 						hp =(con+siz)/2;
 						System.out.println("  ");
 						System.out.println("探索者名:"+name);
